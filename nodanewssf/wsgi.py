@@ -15,4 +15,4 @@ from whitenoise import WhiteNoise
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nodanewssf.settings')
 
 application = get_wsgi_application()
-application = WhiteNoise(application, root='/nodanews_project/staticfiles')
+application = WhiteNoise(application, root='/nodanewssf/staticfiles')
