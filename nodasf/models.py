@@ -35,6 +35,9 @@ class City(models.Model):
     county = models.ForeignKey(
         'County',
         on_delete=models.PROTECT,)    
+    def __str__(self):
+        return self.name 
+
 class Party(models.Model):
     name = models.CharField(max_length=100, default='')
 
