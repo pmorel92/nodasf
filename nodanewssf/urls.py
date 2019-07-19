@@ -18,5 +18,5 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-	url(r'^', include('nodanews.urls')),    
+	url(r'^', include('nodasf.urls')),    
 ]
