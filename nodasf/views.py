@@ -12,8 +12,11 @@ def get_item(dictionary, key):
     return dictionary.get(key)
 
 def index(request):
-	local_links = Local_Link.objects.all()
+	local_links = Local_Link.objects.all()[0:15]
 	stfs= STF.objects.all().order_by('-date_updated') [0:10]
 	events= Event.objects.all().order_by('-date') [0:20]
 	return render(request, 'nodasf/index.html', {'local_links': local_links, 'stfs': stfs, 'events': events})
 
+def media_directory(request):
+	medias = Media_Org.objects.all()
+	return render(request, 'nodasf/media-org-directory.html', {'medias': medias})

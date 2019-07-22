@@ -39,6 +39,8 @@ class Genre(models.Model):
 
 class Issue(models.Model):
     name = models.CharField(max_length=100, default='')
+    imageQ = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
@@ -49,6 +51,8 @@ class City(models.Model):
     county = models.ForeignKey(
         'County',
         on_delete=models.PROTECT,)    
+    imageQ = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
@@ -77,6 +81,8 @@ class Venue(models.Model):
         'County',
         blank=True,
         on_delete=models.PROTECT,)
+    imageQ = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
@@ -99,6 +105,8 @@ class Event(models.Model):
         'Genre',
         on_delete=models.PROTECT,)
     description = models.TextField()
+    imageQ = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
@@ -168,7 +176,7 @@ class Journalist(models.Model):
 
 class Local_Link(models.Model):
     url = models.CharField(max_length=300, default='')
-    title = models.CharField(max_length=150, default='')
+    headline = models.CharField(max_length=150, default='')
     media = models.ForeignKey(
         'Media_Org',
         on_delete=models.CASCADE,)
@@ -179,19 +187,21 @@ class Local_Link(models.Model):
         on_delete=models.PROTECT,)
     city = models.ForeignKey(
         'City',
-        on_delete=models.PROTECT,)
+        on_delete=models.PROTECT,
+        blank=True)
     issue = models.ForeignKey(
         'Issue',
-        on_delete=models.PROTECT,)        
+        on_delete=models.PROTECT,
+        blank=True,)        
     journalist = models.ForeignKey('Journalist',
     null=True,
     blank=True,
     on_delete=models.PROTECT,)
     imageQ = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='media/faces', default='', blank=True)
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)
 
     def __str__(self):
-        return "{}/{}".format(self.id, self.media)
+        return "{}/{}".format(self.headline, self.media)
 
     class Meta:
         ordering = ('-posted',)
