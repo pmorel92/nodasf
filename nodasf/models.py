@@ -4,6 +4,7 @@ from django.db.models.aggregates import Count
 
 class County(models.Model):
     name = models.CharField(max_length=100, default='')
+    slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
         return self.name    
@@ -13,6 +14,17 @@ class Agency(models.Model):
     picture = models.ImageField(upload_to='media/stock', default=" ")
     homepage = models.CharField(max_length=300, default='')
     description = models.TextField()
+    slug = models.SlugField(max_length=100, default=' ')
+    
+    def __str__(self):
+        return self.name    
+
+class Organization(models.Model):
+    name = models.CharField(max_length=100, default='')
+    picture = models.ImageField(upload_to='media/stock', default=" ")
+    homepage = models.CharField(max_length=300, default='')
+    description = models.TextField()
+    slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
         return self.name    
@@ -20,12 +32,14 @@ class Agency(models.Model):
 
 class Genre(models.Model):
     name = models.CharField(max_length=100, default='')
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
 
 class Issue(models.Model):
     name = models.CharField(max_length=100, default='')
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -35,17 +49,21 @@ class City(models.Model):
     county = models.ForeignKey(
         'County',
         on_delete=models.PROTECT,)    
+    slug = models.SlugField(max_length=100, default=' ')
+
     def __str__(self):
         return self.name 
 
 class Party(models.Model):
     name = models.CharField(max_length=100, default='')
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
 
 class Level(models.Model):
     name = models.CharField(max_length=100, default='')
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -59,6 +77,7 @@ class Venue(models.Model):
         'County',
         blank=True,
         on_delete=models.PROTECT,)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -80,6 +99,7 @@ class Event(models.Model):
         'Genre',
         on_delete=models.PROTECT,)
     description = models.TextField()
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name

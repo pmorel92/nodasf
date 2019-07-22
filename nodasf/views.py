@@ -5,12 +5,15 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import F, Q
+from .models import County, Venue, Agency, Organization, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF_Hub, STF_Link, STF
 
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)
 
 def index(request):
-
-    return render(request, 'sf.nodanews.com')
+	local_links = Local_Link.objects.all()
+	stfs= STF.objects.all().order_by('-date_updated') [0:10]
+	events= Event.objects.all().order_by('-date') [0:20]
+	return render(request, 'nodasf/index.html', {'local_links': local_links, 'stfs': stfs, 'events': events})
 
