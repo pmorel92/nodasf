@@ -21,9 +21,9 @@ def media_directory(request):
 	medias = Media_Org.objects.all()
 	return render(request, 'media-org-directory.html', {'medias': medias})
 
-def media_org(request, slug):
-	media = get_object_or_404(Media_Org)
-	journalists = Journalist.objects.filter( organization__slug = slug )
+def media_org(request, media_org_id, slug):
+	media = get_object_or_404(Media_Org, pk=media_org_id)
+	journalists = Journalist.objects.filter( organization__id = media_org_id )
 	return render(request, 'media-org.html', {'media': media, 'journalists': journalists})
 	
 

@@ -4,7 +4,7 @@ from django.db.models.aggregates import Count
 
 class County(models.Model):
     name = models.CharField(max_length=100, default='')
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
         return self.name    
@@ -14,7 +14,7 @@ class Agency(models.Model):
     picture = models.ImageField(upload_to='media/stock', default=" ")
     homepage = models.CharField(max_length=300, default='')
     description = models.TextField()
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
         return self.name    
@@ -24,7 +24,7 @@ class Organization(models.Model):
     picture = models.ImageField(upload_to='media/stock', default=" ")
     homepage = models.CharField(max_length=300, default='')
     description = models.TextField()
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
         return self.name    
@@ -32,7 +32,7 @@ class Organization(models.Model):
 
 class Genre(models.Model):
     name = models.CharField(max_length=100, default='')
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -41,7 +41,7 @@ class Issue(models.Model):
     name = models.CharField(max_length=100, default='')
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -53,21 +53,21 @@ class City(models.Model):
         on_delete=models.PROTECT,)    
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name 
 
 class Party(models.Model):
     name = models.CharField(max_length=100, default='')
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
 
 class Level(models.Model):
     name = models.CharField(max_length=100, default='')
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -83,7 +83,7 @@ class Venue(models.Model):
         on_delete=models.PROTECT,)
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -133,7 +133,7 @@ class Politician(models.Model):
     upcoming = models.ForeignKey(
         'Event',
         on_delete=models.PROTECT,)    
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
         return self.name    
@@ -151,7 +151,7 @@ class Media_Org(models.Model):
         'County',
         blank=True,    
         on_delete=models.PROTECT,)
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
 
     
     def __str__(self):
@@ -167,7 +167,7 @@ class Journalist(models.Model):
         on_delete=models.PROTECT,)
     bio = models.TextField(default='bio goes here')
     picture = models.ImageField(upload_to='media/faces', default=" ")
-    slug = models.SlugField(max_length=100, default=' ', primary_key=True)
+    slug = models.SlugField(max_length=100, default=' ')
     def __str__(self):
         return self.name
     class Meta:
