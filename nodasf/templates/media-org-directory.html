@@ -37,5 +37,8 @@
   	</nav>
     </header>
 <div id="main">
+    {% for media in  medias %}
+    <a href="https://sf.nodanews.com/{{media.id}}/{{media.slug}}" target="_blank">{{media.name}}</a>
     
+    {% endfor %}
 </div>
