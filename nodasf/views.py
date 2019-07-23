@@ -20,3 +20,39 @@ def index(request):
 def media_directory(request):
 	medias = Media_Org.objects.all()
 	return render(request, 'media-org-directory.html', {'medias': medias})
+
+def media_org(request, slug):
+	media = get_object_or_404(Media_Org, pk=slug)
+	journalists = Journalist.objects.filter( organization__slug = slug )
+	return render(request, 'media-org.html', {'media': media, 'journalists': journalists})
+	
+
+def venues(request):
+	venues = Venue.objects.all()
+	return render(request, 'venues.html', {'venues': venues})
+	
+def politicians(request):
+	politicians = Politician.objects.all()
+	return render(request, 'politician.html', {'politicians': politicians})
+
+def issues(request):
+	issues = Issue.objects.all()
+	return render(request, 'issue.html', {'issues': issues})
+
+def agencies(request):
+	agencies = Agency.objects.all()
+	return render(request, 'agency.html', {'agencies': agencies})
+	
+def about(request):
+	return render(request, 'about.html')
+
+def organizations(request):
+	organizations = Organization.Objects.all()
+	return render(request, 'organization.html', {'organizations': organizations})
+
+def journalists(request):
+	journalists = Journalist.objects.all()
+	return render(request, 'journalist.html', {'journalists': journalists})
+
+	
+	
