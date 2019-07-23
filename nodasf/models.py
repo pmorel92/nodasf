@@ -9,11 +9,19 @@ class County(models.Model):
     def __str__(self):
         return self.name    
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, default='')
+    def __str__(self):
+        return self.name    
+        
 class Agency(models.Model):
     name = models.CharField(max_length=100, default='')
     picture = models.ImageField(upload_to='media/stock', default=" ")
     homepage = models.CharField(max_length=300, default='')
     description = models.TextField()
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.PROTECT)
     slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
@@ -24,6 +32,9 @@ class Organization(models.Model):
     picture = models.ImageField(upload_to='media/stock', default=" ")
     homepage = models.CharField(max_length=300, default='')
     description = models.TextField()
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.PROTECT)    
     slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):

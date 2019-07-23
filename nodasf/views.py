@@ -26,14 +26,18 @@ def media_org(request, id, slug):
 	journalists = Journalist.objects.filter( organization__id = id )
 	return render(request, 'media-org.html', {'media': media, 'journalists': journalists})
 	
-
 def venues(request):
 	venues = Venue.objects.all()
 	return render(request, 'venues.html', {'venues': venues})
 	
+def venue(request, id, slug):
+	venue = get_object_or_404(Venue, pk=id)
+	events = Event.objects.filter( venue__id = id )
+	return render(request, 'venue-part.html', {'venue': venue, 'events': events})
+	
 def politicians(request):
 	politicians = Politician.objects.all()
-	return render(request, 'politician.html', {'politicians': politicians})
+	return render(request, 'politicians.html', {'politicians': politicians})
 
 def issues(request):
 	issues = Issue.objects.all()
@@ -50,9 +54,18 @@ def organizations(request):
 	organizations = Organization.Objects.all()
 	return render(request, 'organization.html', {'organizations': organizations})
 
+def organization_part(request, id, slug):
+	organization = get_object_or_404(Organization, pk=id)
+	
+
 def journalists(request):
 	journalists = Journalist.objects.all()
 	return render(request, 'journalist.html', {'journalists': journalists})
+
+def journalist_part(request, id, slug):
+	journalist = get_object_or_404(Journalist, pk=id)
+	articles = Local_Link.objects.filter( journalist__id = id)
+	return render(request, 'journalist-part.html', {'journalist': journalist, 'articles': articles})
 
 	
 	
