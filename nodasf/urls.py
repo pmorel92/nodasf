@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
 	path('', views.index, name='index'),
 	path('media-org-directory/', views.media_directory, name='media org directory'),	
-	path('media-org/<int:id>/(<slug:slug>/', views.media_org, name='media org'),	
+	path('media-org/<int:id>/(<slug>/', views.media_org, name='media org'),	
 	url(r'^journalist/$', views.journalists, name='journalist directors'),
 	url(r'^venues/$', views.venues, name="venue directory"),
 	url(r'^politicians/$', views.politicians, name="politician directory"),
