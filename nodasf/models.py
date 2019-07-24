@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.db.models.aggregates import Count
 
+
 class County(models.Model):
     name = models.CharField(max_length=100, default='')
     slug = models.SlugField(max_length=100, default=' ')
@@ -70,6 +71,16 @@ class City(models.Model):
 
     def __str__(self):
         return self.name 
+        
+class CongressDistrict(models.Model):
+    name = models.CharField(max_length=100, default='')
+    description = models.TextField(default=' ')    
+    county = models.ManyToManyField('County')
+    cities = models.ManyToManyField('City')          
+    slug = models.SlugField(max_length=100, default=' ')    
+  
+    def __str__(self):
+        return self.name   
 
 class Party(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -87,6 +98,7 @@ class Level(models.Model):
 
 class Venue(models.Model):
     name = models.CharField(max_length=100, default='')
+    description = models.TextField(default=' ')    
     city = models.ForeignKey(
         'City',
         on_delete=models.PROTECT,)     
@@ -139,7 +151,11 @@ class Politician(models.Model):
     county = models.ForeignKey(
         'County',
         blank=True,    
-        on_delete=models.PROTECT,)        
+        on_delete=models.PROTECT,)
+    district = models.ForeignKey(
+        'CongressDistrict',
+        null=True,
+        on_delete=models.PROTECT)        
     picture = models.ImageField(upload_to='media/faces', default=" ")
     homepage = models.CharField(max_length=300, default='')
     description = models.TextField()

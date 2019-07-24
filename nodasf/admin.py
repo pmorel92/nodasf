@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import County, Venue, Agency, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF, STF_Hub, STF_Link
+from .models import County, Venue, Agency, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF, STF_Hub, STF_Link, CongressDistrict
 
 class Media_OrgAdmin(admin.ModelAdmin):
     list_display = ['name', 'city']
@@ -24,3 +24,4 @@ admin.site.register(Local_Link)
 admin.site.register(STF)
 admin.site.register(STF_Hub)
 admin.site.register(STF_Link)
+admin.site.register(CongressDistrict)
