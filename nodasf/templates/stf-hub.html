@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109012884-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109012884-2');
+</script>
+<meta charset="utf-8">
+<title>Noda News</title>
+{% load static from staticfiles %}
+<link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
+<link href="{% static 'css_style_sheets/index.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/nav.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+      <header>
+  	    		<form method="get" action="https://www.google.com/search">
+			    <input type="hidden" name="sitesearch" value="sf.nodanews.com" />
+			    <input type="text" size="15" name="q" placeholder="Search" />
+			    <button type="submit"></button>
+		        </form>
+    <nav>
+      <a href="https://sf.nodanews.com/"><img src="{% static 'nodasf-logo.svg' %}" alt="" id="logo"></a>
+      <a href="https://sf.nodanews.com/media-org-directory/">Media Org. Directory</a>
+      <a href="https://sf.nodanews.com/venues/">Venues</a>
+      <a href="https://sf.nodanews.com/politicians/">Politicians</a>
+      <a href="https://sf.nodanews.com/agencies/">Gov. Agencies</a>
+      <a href="https://sf.nodanews.com/organizations/">Local Organizations</a>
+      <a href="https://sf.nodanews.com/about/">About Noda News</a>
+  	</nav>
+    </header>
+<div id="main">   
+    <div id="stf-section">
+      <h1 class="section-title">Stories We are Following</h1>    
+          <ul class="stf-list">
+            {% for stf in stfs %}
+            <li>
+              <a href="https://sf.nodanews.com/story/{{stf.slug}}" class="anchor" target='_blank'>
+                  <p class="stf-headline">{{stf.headline}}</p>
+                  <p class="stf-updated">Updated: {{stf.update}}</p>
+                  <img src="https://noda-sf-storage.s3.amazonaws.com/media/stock/{{stf.image}}" class="stf_image">
+                  <p class="credit">Photo Credit: {{stf.credit}}</p>
+              </a>
+                  <p class="stf_update">{{stf.update|linebreaksbr}}</p>
+            </li>
+            {% endfor %}
+          </ul>
+    </div>
+    <div id="event-section">
+        <h1 class="section-title">Local Events</h1>
+        <ul class="event-list">
+            {% for event in events %}
+                <li class="event">
+                    <a href="https://sf.nodanews.com/event/{{event.slug}}" class='anchor' target='_blank'>
+                        <p class="event-name">{{event.name}}</p>
+                        <p class='event-date'>{{event.date}}</p>
+                        <p class='event-genre'>{{event.genre}}</p>
+                        <p class='event-venue'>Venue: {{event.venue}}</p>
+                  {% if event.free %}
+                         <p class="free">FREE</p>
+                  {% endif %}         
+                  {% if event.imageQ %}
+                  <img src="https://noda-sf-storage.s3.amazonaws.com/media/{{event.image}}" class="event-image">
+                  {% endif %}
+                    </a>
+                </li>
+            
+            {% endfor %}
+            
+        </ul>
+    </div>
+    
+    <div id='local-link-section'>
+            <h1 class="section-title">News Stories From Local Outlets</h1>        
+          <ul class='local-link-section'>
+          {% for local_link in local_links %}
+            <li class='local-link'>
+               <a href="{{local_link.url}}" class="link" target="_blank">
+                 <p>{{local_link.headline}}</a><br>
+                 <a href="https://sf.nodanews.com/media-org-directory/{{local_link.media.slug}}" class="local-media" target="_blank">{{local_link.media.name}}</a><br>
+                 <a href="https://sf.nodanews.com/journalist/{{local_link.journalist.slug}}" class="journalist" target="_blank">{{local_link.journalist.name}}</a></p>                  
+                  {% if local_link.imageQ %}
+                  <a href="{{local_link.url}}" target="_blank">
+                  <img src="https://noda-sf-storage.s3.amazonaws.com/media/{{local_link.image}}" class="local_image">
+                  </a>
+              {% endif %}   
+           </li>          
+          {% endfor %}
+          </ul>
+        </div>
+</div>        
+</body>

@@ -21,6 +21,7 @@ class Agency(models.Model):
     description = models.TextField()
     category = models.ForeignKey(
         'Category',
+        null=True,
         on_delete=models.PROTECT)
     slug = models.SlugField(max_length=100, default=' ')
     
@@ -34,6 +35,7 @@ class Organization(models.Model):
     description = models.TextField()
     category = models.ForeignKey(
         'Category',
+        null=True,    
         on_delete=models.PROTECT)    
     slug = models.SlugField(max_length=100, default=' ')
     
@@ -203,6 +205,7 @@ class Local_Link(models.Model):
     issue = models.ForeignKey(
         'Issue',
         on_delete=models.PROTECT,
+       null=True,    
         blank=True,)        
     journalist = models.ForeignKey('Journalist',
     null=True,
@@ -231,6 +234,11 @@ class STF_Hub(models.Model):
         on_delete=models.PROTECT,)    
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
     description = models.TextField(default='', blank=True)
+    issue = models.ForeignKey(
+        'Issue',
+        null=True,        
+        on_delete=models.PROTECT,
+        blank=True,)        
     slug = models.SlugField(max_length=200, default=' ') 
 
     def __str__(self):
@@ -256,7 +264,12 @@ class STF(models.Model):
     city = models.ForeignKey(
         'City',
         blank=True,
-        on_delete=models.PROTECT,)        
+        on_delete=models.PROTECT,)
+    issue = models.ForeignKey(
+        'Issue',
+       null=True,    
+        on_delete=models.PROTECT,
+        blank=True,)            
     slug = models.SlugField(max_length=200, default=' ') 
 
     def __str__(self):

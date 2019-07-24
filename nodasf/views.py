@@ -30,7 +30,7 @@ def venues(request):
 	venues = Venue.objects.all()
 	return render(request, 'venues.html', {'venues': venues})
 	
-def venue(request, id, slug):
+def venue_part(request, id, slug):
 	venue = get_object_or_404(Venue, pk=id)
 	events = Event.objects.filter( venue__id = id )
 	return render(request, 'venue-part.html', {'venue': venue, 'events': events})
@@ -39,6 +39,10 @@ def politicians(request):
 	politicians = Politician.objects.all()
 	return render(request, 'politicians.html', {'politicians': politicians})
 
+def politician_part(request, id, slug):
+	politician = get_object_or_404(Politician, pk=id)
+	return render(request, 'politician-part.html', {'politician': politician})
+
 def issues(request):
 	issues = Issue.objects.all()
 	return render(request, 'issue.html', {'issues': issues})
@@ -46,6 +50,10 @@ def issues(request):
 def agencies(request):
 	agencies = Agency.objects.all()
 	return render(request, 'agency.html', {'agencies': agencies})
+
+def agency_part(request):
+	agency = get_object_or_404(Agency, pk=id)
+	return render(request, 'agency-part.html', {'agency': agency})
 	
 def about(request):
 	return render(request, 'about.html')
@@ -56,6 +64,7 @@ def organizations(request):
 
 def organization_part(request, id, slug):
 	organization = get_object_or_404(Organization, pk=id)
+	return render(request, 'organization-part.html', {'organization': organization})
 	
 
 def journalists(request):
@@ -67,5 +76,16 @@ def journalist_part(request, id, slug):
 	articles = Local_Link.objects.filter( journalist__id = id)
 	return render(request, 'journalist-part.html', {'journalist': journalist, 'articles': articles})
 
-	
+def stf_hub(request, slug, stf_hub_id):
+	stf_hub = get_object_or_404(STF_Hub, pk=stf_hub_id)
+	stfs = STF.objects.filter( hub__id = stf_hub_id)[0:7]
+	stf_links = {
+		p: STF_Link.objects.filter(story__id = p.id) for p in stfs
+	}	
+	return render(request, 'stf-hub.html', {'stf_hub': stf_hub, 'stfs': stf_links})
+
+def stf(request, slug, stf_id):
+	stf = get_object_or_404(STF, pk=stf_id)
+	stf_links = STF_Link.objects.filter( story__id = stf_id)
+	return render(request, 'nodanews/story.html', {'stf': stf, 'stf_links': stf_links})	
 	
