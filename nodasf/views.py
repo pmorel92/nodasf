@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import F, Q
-from .models import County, Venue, Agency, Organization, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF_Hub, STF_Link, STF, CongressDistrict
+from .models import County, Venue, Agency, Organization, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF_Hub, STF_Link, STF, CongressDistrict, Category
 
 @register.filter
 def get_item(dictionary, key):
@@ -66,6 +66,17 @@ def organization_part(request, id, slug):
 	organization = get_object_or_404(Organization, pk=id)
 	return render(request, 'organization-part.html', {'organization': organization})
 	
+def city(request, id, slug):
+	city = get_object_or_404(City, pk=id)
+	return render(request, 'city.html', {'city': city})	
+
+def county(request, id, slug):
+	county = get_object_or_404(County, pk=id)
+	return render(request, 'county.html', {'county': county})	
+
+def district(request, id, slug):
+	district = get_object_or_404(City, pk=id)
+	return render(request, 'district.html', {'district': district})	
 
 def journalists(request):
 	journalists = Journalist.objects.all()

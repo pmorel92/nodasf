@@ -19,5 +19,8 @@ urlpatterns = [
 	path('organizations/', views.organizations, name="organization directory"),	
 	path('organizations/<int:id>/<slug:slug>/', views.organization_part, name="organization particular"),	
 	path('story/<int:id>/<slug:slug>/', views.stf, name="story to follow"),
-	path('hub/<int:id>/<slug:slug>/', views.stf_hub, name="story hub")
+	path('hub/<int:id>/<slug:slug>/', views.stf_hub, name="story hub"),
+	path('city/<int:id>/<slug:slug>/', views.city, name="city"),
+	path('county/<int:id>/<slug:slug>/', views.county, name="county"),
+	path('district/<int:id>/<slug:slug>/', views.district, name="district"),
 	]

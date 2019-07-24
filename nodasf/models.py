@@ -62,6 +62,7 @@ class Issue(models.Model):
 
 class City(models.Model):
     name = models.CharField(max_length=100, default='')
+    homepage = models.CharField(max_length=300, default=' ')    
     county = models.ForeignKey(
         'County',
         on_delete=models.PROTECT,)    
