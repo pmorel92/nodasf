@@ -5,6 +5,7 @@ from django.db.models.aggregates import Count
 
 class County(models.Model):
     name = models.CharField(max_length=100, default='')
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)    
     slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
