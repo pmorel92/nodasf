@@ -9,6 +9,8 @@ class County(models.Model):
     
     def __str__(self):
         return self.name    
+    class Meta:
+        ordering = ('name',)
 
 class Category(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -28,6 +30,8 @@ class Agency(models.Model):
     
     def __str__(self):
         return self.name    
+    class Meta:
+        ordering = ('name',)
 
 class Organization(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -42,7 +46,8 @@ class Organization(models.Model):
     
     def __str__(self):
         return self.name    
-
+    class Meta:
+        ordering = ('name',)
 
 class Genre(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -59,6 +64,8 @@ class Issue(models.Model):
 
     def __str__(self):
         return self.name    
+    class Meta:
+        ordering = ('name',)
 
 class City(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -72,6 +79,8 @@ class City(models.Model):
 
     def __str__(self):
         return self.name 
+    class Meta:
+        ordering = ('name',)        
         
 class CongressDistrict(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -113,6 +122,8 @@ class Venue(models.Model):
 
     def __str__(self):
         return self.name    
+    class Meta:
+        ordering = ('name',)
         
 class Event(models.Model):
     name = models.CharField(max_length=200)
