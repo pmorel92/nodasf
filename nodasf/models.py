@@ -87,7 +87,8 @@ class CongressDistrict(models.Model):
     name = models.CharField(max_length=100, default='')
     description = models.TextField(default=' ')    
     county = models.ManyToManyField('County')
-    cities = models.ManyToManyField('City')          
+    cities = models.ManyToManyField('City')
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)    
     slug = models.SlugField(max_length=100, default=' ')    
   
     def __str__(self):
