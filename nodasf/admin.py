@@ -3,9 +3,10 @@ from django.contrib import admin
 from .models import County, Venue, Agency, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF, STF_Hub, STF_Link
 
 class Media_OrgAdmin(admin.ModelAdmin):
-    list_display= ['name', 'city']
+    list_display = ['name', 'city']
 
-
+class CityAmin(admin.ModelAdmin):
+    list_display = ['name', 'county', 'imageQ']
 
 admin.site.register(County)
 admin.site.register(Venue)
