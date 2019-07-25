@@ -111,7 +111,9 @@ class District(models.Model):
   
     def __str__(self):
         return self.name   
-
+    class Meta:
+        ordering = ('name',)  
+        
 class Venue(models.Model):
     name = models.CharField(max_length=100, default='')
     description = models.TextField(default=' ')    
