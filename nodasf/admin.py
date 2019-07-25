@@ -7,16 +7,25 @@ class Media_OrgAdmin(admin.ModelAdmin):
 
 class CityAdmin(admin.ModelAdmin):
     list_display = ['name', 'county', 'imageQ']
+    
+class EventAdmin(admin.ModelAdmin):
+    list_display = ['name', 'venue', 'city',]
+
+class VenueAdmin(admin.ModelAdmin):
+    list_display = ['name', 'city', 'county', ]
+
+class AgencyAdmin(admin.ModelAdmin):
+    list_display = ['name', 'category']
 
 admin.site.register(County)
-admin.site.register(Venue)
+admin.site.register(Venue, VenueAdmin)
 admin.site.register(Agency)
 admin.site.register(Genre)
 admin.site.register(Issue)
 admin.site.register(City, CityAdmin)
 admin.site.register(Party)
 admin.site.register(Level)
-admin.site.register(Event)
+admin.site.register(Event, EventAdmin)
 admin.site.register(Politician)
 admin.site.register(Media_Org, Media_OrgAdmin)
 admin.site.register(Journalist)

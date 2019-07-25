@@ -143,7 +143,8 @@ class Event(models.Model):
         on_delete=models.PROTECT,) 
     county = models.ForeignKey(
         'County',
-        blank=True,    
+        blank=True,
+        null=True,        
         on_delete=models.PROTECT,)
     free = models.BooleanField(default=False)
     cost = models.CharField(max_length=100, default='', blank=True)
