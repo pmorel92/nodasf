@@ -83,17 +83,6 @@ class City(models.Model):
     class Meta:
         ordering = ('name',)        
         
-class CongressDistrict(models.Model):
-    name = models.CharField(max_length=100, default='')
-    description = models.TextField(default=' ')    
-    county = models.ManyToManyField('County')
-    cities = models.ManyToManyField('City')
-    image = models.ImageField(upload_to='media/stock', default='', blank=True)    
-    slug = models.SlugField(max_length=100, default=' ')    
-  
-    def __str__(self):
-        return self.name   
-
 class Party(models.Model):
     name = models.CharField(max_length=100, default='')
     slug = models.SlugField(max_length=100, default=' ')
@@ -107,6 +96,21 @@ class Level(models.Model):
 
     def __str__(self):
         return self.name    
+        
+class District(models.Model):
+    name = models.CharField(max_length=100, default='')
+    description = models.TextField(default=' ')    
+    county = models.ManyToManyField('County')
+    cities = models.ManyToManyField('City')
+    image = models.ImageField(upload_to='media/stock', default='', blank=True)    
+    level = models.ForeignKey(
+        'Level',
+        default=1,
+        on_delete=models.PROTECT,)
+    slug = models.SlugField(max_length=100, default=' ')    
+  
+    def __str__(self):
+        return self.name   
 
 class Venue(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -167,7 +171,7 @@ class Politician(models.Model):
         blank=True,    
         on_delete=models.PROTECT,)
     district = models.ForeignKey(
-        'CongressDistrict',
+        'District',
         null=True,
         on_delete=models.PROTECT)        
     picture = models.ImageField(upload_to='media/faces', default=" ")
