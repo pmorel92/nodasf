@@ -116,7 +116,8 @@ class District(models.Model):
         
 class Venue(models.Model):
     name = models.CharField(max_length=100, default='')
-    description = models.TextField(default=' ')    
+    description = models.TextField(default=' ')
+    homepage = models.CharField(max_length=300, default=' ')    
     city = models.ForeignKey(
         'City',
         on_delete=models.PROTECT,)     
@@ -150,6 +151,10 @@ class Event(models.Model):
         'Genre',
         on_delete=models.PROTECT,)
     description = models.TextField()
+    venue = models.ForeignKey(
+        'Venue',
+        default=1,
+        on_delete=models.PROTECT,)    
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')
