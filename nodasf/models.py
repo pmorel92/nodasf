@@ -124,6 +124,7 @@ class Venue(models.Model):
     county = models.ForeignKey(
         'County',
         blank=True,
+        null=True,
         on_delete=models.PROTECT,)
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
