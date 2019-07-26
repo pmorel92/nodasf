@@ -9,14 +9,14 @@ class County(models.Model):
     slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
-        return "{}/{}".format(self.id, self.story)   
+        return "{}/{}".format(self.id, self.name)   
     class Meta:
         ordering = ('name',)
 
 class Category(models.Model):
     name = models.CharField(max_length=100, default='')
     def __str__(self):
-        return "{}/{}".format(self.id, self.story)
+        return "{}/{}".format(self.id, self.name)
         
 class Agency(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -55,7 +55,7 @@ class Genre(models.Model):
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
-        return "{}/{}".format(self.id, self.story)
+        return "{}/{}".format(self.id, self.name)
 
 class Issue(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -64,7 +64,7 @@ class Issue(models.Model):
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
-        return "{}/{}".format(self.id, self.story)    
+        return "{}/{}".format(self.id, self.name)    
     class Meta:
         ordering = ('name',)
 
