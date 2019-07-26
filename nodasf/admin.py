@@ -19,7 +19,7 @@ class AgencyAdmin(admin.ModelAdmin):
 
 admin.site.register(County)
 admin.site.register(Venue, VenueAdmin)
-admin.site.register(Agency)
+admin.site.register(Agency, AgencyAdmin)
 admin.site.register(Genre)
 admin.site.register(Issue)
 admin.site.register(City, CityAdmin)

@@ -239,10 +239,12 @@ class Local_Link(models.Model):
     posted = models.DateTimeField(default=datetime.now, blank=True)
     county = models.ForeignKey(
         'County',
-        blank=True,    
+        blank=True,
+        null=True,
         on_delete=models.PROTECT,)
     city = models.ForeignKey(
         'City',
+       null=True,
         on_delete=models.PROTECT,
         blank=True)
     issue = models.ForeignKey(
@@ -317,6 +319,9 @@ class STF(models.Model):
 
     def __str__(self):
         return "{}/{}".format(self.headline, self.hub)  
+    class Meta:
+        ordering = ('-date_updated',)    
+
 
 class STF_Link(models.Model):
     url = models.CharField(max_length=300, default='', blank=True)
