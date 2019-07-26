@@ -48,7 +48,7 @@ def issues(request):
 	return render(request, 'issue.html', {'issues': issues})
 
 def agencies(request):
-	agencies = Agency.objects.all()
+	agencies = Agency.objects.all().order_by('name')
 	return render(request, 'agency.html', {'agencies': agencies})
 
 def agency_part(request):

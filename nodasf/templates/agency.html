@@ -37,8 +37,11 @@
   	</nav>
     </header>
 <div id="main">
+    <h1 id='title'>Local and Regional Government Agencies</h1>
     {% for agency in agencies %}
+    <img src="https://noda-sf-storage.s3.amazonaws.com/media/stock/{{agency.image}}" class="image">
     <a href="https://sf.nodanews.com/agency/{{agency.id}}/{{agency.slug}}/" target="_blank" class="agency-name">{{agency.name}}</a>
-    
+    <p class='category'>{{agency.Category}}</p>
+    <a href='{{agency.homepage}}' class="homepage">Homepage</a>
     {% endfor %}
 </div>
