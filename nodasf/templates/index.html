@@ -27,7 +27,7 @@
 			    <button type="submit"></button>
 		        </form>
     <nav>
-      <a href="https://sf.nodanews.com/"><img src="{% static 'nodasf-logo.svg' %}" alt="" id="logo"></a>
+      <a href="https://sf.nodanews.com/"><img src="{% static 'nodasf.png' %}" alt="" id="logo"></a>
       <img src='{% static Hamburger_icon.svg.png %}' id="burger">
       <ul id="nav-list">
       <li class='nav-list-item'><a href="https://sf.nodanews.com/media-org-directory/">Media Org. Directory</a></li>
@@ -45,7 +45,7 @@
           <ul class="stf-list">
             {% for stf in stfs %}
             <li>
-              <a href="https://sf.nodanews.com/story/{{stf.slug}}" class="anchor" target='_blank'>
+              <a href="https://sf.nodanews.com/story/{{stf.id}}/{{stf.slug}}" class="anchor" target='_blank'>
                   <p class="stf-headline">{{stf.headline}}</p>
                   <p class="stf-updated">Updated: {{stf.update}}</p>
                   <img src="https://noda-sf-storage.s3.amazonaws.com/{{stf.image}}" class="stf_image">
@@ -61,7 +61,7 @@
         <ul class="event-list">
             {% for event in events %}
                 <li class="event">
-                    <a href="https://sf.nodanews.com/event/{{event.slug}}" class='anchor' target='_blank'>
+                    <a href="https://sf.nodanews.com/event/{{event.id}}/{{event.slug}}" class='anchor' target='_blank'>
                         <p class="event-name">{{event.name}}</p>
                         <p class='event-date'>{{event.date}}</p>
                         <p class='event-genre'>{{event.genre}}</p>
