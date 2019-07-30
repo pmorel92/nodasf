@@ -11,10 +11,10 @@
   gtag('config', 'UA-109012884-2');
 </script>
 <meta charset="utf-8">
-<title>NodaSF: Gov Agencies</title>
+<title>NodaSF: {{city.name}}</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
-<link href="{% static 'css_style_sheets/agency.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css_style_sheets/city.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css_style_sheets/nav.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'favicon.ico' %}" rel='shortcut icon'>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -40,8 +40,13 @@
   	</nav>
     </header>
 <div id="main">
-    {% for agency in agencies %}
-    <a href="https://sf.nodanews.com/agency/{{agency.id}}/{{agency.slug}}/" target="_blank" class="agency-name">{{agency.name}}</a>
-    
-    {% endfor %}
+      <h1>{{city.name}}</h1>
+      <a href='https://sf.nodanews.com/{{city.county.id}}/{{city.county.slug}}'class="anchor"><h2>{{city.county.name}}</h2></a>
+      {% if imageQ %}
+    <img src="https://noda-sf-storage.s3.amazonaws.com/media/stock/{{city.image}}" class="image">
+    {% endif %]
+    <a href='{{city.homepage}}'><p class="homepage">Homepage</p></a>
+    <!-- Not Ready Yet
+    <p class='description'>{{city.description|linebreaksbr}}</p>
+      -->
 </div>

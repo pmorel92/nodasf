@@ -5,7 +5,8 @@ from django.db.models.aggregates import Count
 
 class County(models.Model):
     name = models.CharField(max_length=100, default='')
-    image = models.ImageField(upload_to='media/stock', default='', blank=True)    
+    image = models.ImageField(upload_to='media/stock', default='', blank=True) 
+    description = models.TextField(default=' ')      
     slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
@@ -73,7 +74,8 @@ class City(models.Model):
     homepage = models.CharField(max_length=300, default=' ')    
     county = models.ForeignKey(
         'County',
-        on_delete=models.PROTECT,)    
+        on_delete=models.PROTECT,)
+    description = models.TextField(default=' ')    
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')

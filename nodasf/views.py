@@ -51,7 +51,7 @@ def agencies(request):
 	agencies = Agency.objects.all().order_by('name')
 	return render(request, 'agency.html', {'agencies': agencies})
 
-def agency_part(request):
+def agency_part(request, id, slug):
 	agency = get_object_or_404(Agency, pk=id)
 	return render(request, 'agency-part.html', {'agency': agency})
 	
