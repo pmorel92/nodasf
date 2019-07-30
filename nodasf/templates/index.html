@@ -58,7 +58,7 @@
           </ul>
     </div>
     <div id="event-section">
-        <h1 class="section-title">Local Events</h1>
+        <a href='https://sf.nodanews.com/events/'><h1 class="section-title">Local Events</h1></a>
         <ul class="event-list">
             {% for event in events %}
                 <li class="event">
@@ -88,8 +88,7 @@
             <li class='local-link'>
                <a href="{{local_link.url}}" class="anchor" target="_blank">
                  <p class="local-link-headline">{{local_link.headline}}</p></a>
-                 <a href="https://sf.nodanews.com/journalist/{{local_link.journalist.id}}/{{local_link.journalist.slug}}" class="journalist" target="_blank">{{local_link.journalist.name}}</a></p><br>
-                 <a href="https://sf.nodanews.com/media-org-directory/{{local_link.media.id}}/{{local_link.media.slug}}" class="local-media" target="_blank">{{local_link.media.name}}</a>
+                 <a href="https://sf.nodanews.com/journalist/{{local_link.journalist.id}}/{{local_link.journalist.slug}}" class="journalist" target="_blank">{{local_link.journalist.name}}</a></p><br><a href="https://sf.nodanews.com/media-org-directory/{{local_link.media.id}}/{{local_link.media.slug}}" class="local-media" target="_blank">{{local_link.media.name}}</a>
                   {% if local_link.imageQ %}
                   <a href="{{local_link.url}}" target="_blank">
                   <img src="https://noda-sf-storage.s3.amazonaws.com/{{local_link.image}}" class="local_image">

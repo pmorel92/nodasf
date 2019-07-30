@@ -98,5 +98,12 @@ def stf_hub(request, slug, stf_hub_id):
 def stf(request, slug, stf_id):
 	stf = get_object_or_404(STF, pk=stf_id)
 	stf_links = STF_Link.objects.filter( story__id = stf_id)
-	return render(request, 'nodanews/story.html', {'stf': stf, 'stf_links': stf_links})	
+	return render(request, 'stf.html', {'stf': stf, 'stf_links': stf_links})	
 	
+def event(request, id, slug):
+	event = get_object_or_404(Event, pk=id)
+	return render(request, 'event.html', {'event': event})
+
+def events_hub(request):
+	events = Event.objects.all()
+	return render(request,'event-hub.html', {'events': events})

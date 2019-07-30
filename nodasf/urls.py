@@ -23,4 +23,6 @@ urlpatterns = [
 	path('city/<int:id>/<slug:slug>/', views.city, name="city"),
 	path('county/<int:id>/<slug:slug>/', views.county, name="county"),
 	path('district/<int:id>/<slug:slug>/', views.district, name="district"),
+	path('event/<int:id>/<slug:slug>/', views.event, name="event"),
+	path('events/', views.events_hub, name="events hub"),
 	]
