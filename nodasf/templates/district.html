@@ -11,7 +11,7 @@
   gtag('config', 'UA-109012884-2');
 </script>
 <meta charset="utf-8">
-<title>NodaSF: Gov Agencies</title>
+<title>NodaSF: {{district.name}}</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/city.css' %}" rel="stylesheet" type="text/css">
@@ -40,8 +40,20 @@
   	</nav>
     </header>
 <div id="main">
-    {% for agency in agencies %}
-    <a href="https://sf.nodanews.com/agency/{{agency.id}}/{{agency.slug}}/" target="_blank" class="agency-name">{{agency.name}}</a>
-    
+  <h1>{{district.name}}</h1>
+    <img src="https://noda-sf-storage.s3.amazonaws.com/media/stock/{{district.image}}" class="image">
+    {% for pol in pols %}
+    <a href='https://sf.ndoanews.com/politicians/{{pol.id}}/{{pol.slug}}' class='anchor'><h2>{{pol.name}}</h2></a>
+    <p class='level'>{{pol.level.name}}</p>
+    <img src="https://noda-sf-storage.s3.amazonaws.com/media/faces/{{pol.picture}}" class="pol-image">
+    <p class="party">{{pol.party.name}}</p>
     {% endfor %}
+    {% for county in counties %}
+      <a href='https://sf.nodanews.com/county/{{county.id}}/{{county.slug}}'><h2>{{county.name}}</h2></a>
+    {% endfor %}
+    {% for city in cities %}
+      <h3>{{city.name}}</h3>
+    {% endfor %}
+    <p class="description">{{district.description}}</p>
+    
 </div>

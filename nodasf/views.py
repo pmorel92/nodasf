@@ -72,11 +72,15 @@ def city(request, id, slug):
 
 def county(request, id, slug):
 	county = get_object_or_404(County, pk=id)
-	return render(request, 'county.html', {'county': county})	
+	cities = City.objects.filter( county_id = id )
+	return render(request, 'county.html', {'county': county, 'cities': cities})	
 
 def district(request, id, slug):
 	district = get_object_or_404(City, pk=id)
-	return render(request, 'district.html', {'district': district})	
+	pols = Politician.objects.filter( district_id = id )
+	cities = City.objects.filter( city_id = id )
+	counties = County.objects.filter( county_id = id)
+	return render(request, 'district.html', {'district': district, 'pols': pols, 'cities': cities, 'counties': counties})	
 
 def journalists(request):
 	journalists = Journalist.objects.all()
