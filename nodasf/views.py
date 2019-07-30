@@ -107,5 +107,5 @@ def event(request, id, slug):
 	return render(request, 'event.html', {'event': event})
 
 def events_hub(request):
-	events = Event.objects.all()
+	events = Event.objects.all().order_by('-date')
 	return render(request,'event-hub.html', {'events': events})

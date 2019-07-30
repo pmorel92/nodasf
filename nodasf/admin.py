@@ -9,7 +9,8 @@ class CityAdmin(admin.ModelAdmin):
     list_display = ['name', 'county', 'imageQ']
     
 class EventAdmin(admin.ModelAdmin):
-    list_display = ['name', 'venue', 'city',]
+    list_display = ['name', 'venue', 'city', 'date']
+    date_hierarchy= ['date']
 
 class VenueAdmin(admin.ModelAdmin):
     list_display = ['name', 'city', 'county', ]
