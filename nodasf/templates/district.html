@@ -48,10 +48,10 @@
     <img src="https://noda-sf-storage.s3.amazonaws.com/media/faces/{{pol.picture}}" class="pol-image">
     <p class="party">{{pol.party.name}}</p>
     {% endfor %}
-    {% for county in counties %}
+    {% for county in district.county %}
       <a href='https://sf.nodanews.com/county/{{county.id}}/{{county.slug}}'><h2>{{county.name}}</h2></a>
     {% endfor %}
-    {% for city in cities %}
+    {% for city in district.city %}
       <h3>{{city.name}}</h3>
     {% endfor %}
     <p class="description">{{district.description}}</p>
