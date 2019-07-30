@@ -12,7 +12,7 @@ class County(models.Model):
     def __str__(self):
         return "{}/{}".format(self.id, self.name)   
     def get_district(self):
-        return 'name'
+        return self.name
     
     class Meta:
         ordering = ('name',)
@@ -86,7 +86,7 @@ class City(models.Model):
     def __str__(self):
         return self.name 
     def get_district(self):
-        return 'name'        
+        return self.name        
     class Meta:
         ordering = ('name',)        
         

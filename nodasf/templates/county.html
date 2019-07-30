@@ -41,14 +41,14 @@
     </header>
 <div id="main">
     <h1>{{county.name}}</h1>
-        <img src="https://noda-sf-storage.s3.amazonaws.com/media/stock/{{city.image}}" class="image">
+        <img src="https://noda-sf-storage.s3.amazonaws.com/{{county.image}}" class="image">
             <a href='{{county.homepage}}'><p class="homepage">Homepage</p></a>
     <!-- Not Ready Yet
     <p class='description'>{{city.description|linebreaksbr}}</p> -->
     {% for city in cities %}
             <h2>{{city.name}}</h2>
               {% if imageQ %}
-                <img src="https://noda-sf-storage.s3.amazonaws.com/media/stock/{{city.image}}" class="image">
+                <img src="https://noda-sf-storage.s3.amazonaws.com/{{city.image}}" class="image">
               {% endif %}
     <a href='{{city.homepage}}'><p class="homepage">Homepage</p></a>
     <!-- Not Ready Yet
