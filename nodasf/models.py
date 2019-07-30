@@ -10,7 +10,7 @@ class County(models.Model):
     slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
-        return "{}/{}".format(self.id, self.name)   
+        return "{}/{}".format(self.name, self.id)   
     def get_district(self):
         return self.name
     
@@ -20,7 +20,7 @@ class County(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, default='')
     def __str__(self):
-        return "{}/{}".format(self.id, self.name)
+        return "{}/{}".format(self.name, self.id)
         
 class Agency(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -59,7 +59,7 @@ class Genre(models.Model):
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
-        return "{}/{}".format(self.id, self.name)
+        return "{}/{}".format(self.name, self.id)
 
 class Issue(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -68,7 +68,7 @@ class Issue(models.Model):
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
-        return "{}/{}".format(self.id, self.name)    
+        return "{}/{}".format(self.name, self.id)    
     class Meta:
         ordering = ('name',)
 
@@ -184,7 +184,8 @@ class Politician(models.Model):
         on_delete=models.PROTECT,)
     county = models.ForeignKey(
         'County',
-        blank=True,    
+        blank=True,
+        null=True,
         on_delete=models.PROTECT,)
     district = models.ForeignKey(
         'District',
