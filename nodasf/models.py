@@ -11,6 +11,9 @@ class County(models.Model):
     
     def __str__(self):
         return "{}/{}".format(self.id, self.name)   
+    def get_district(self):
+        return 'name'
+    
     class Meta:
         ordering = ('name',)
 
@@ -82,6 +85,8 @@ class City(models.Model):
 
     def __str__(self):
         return self.name 
+    def get_district(self):
+        return 'name'        
     class Meta:
         ordering = ('name',)        
         
@@ -102,7 +107,7 @@ class Level(models.Model):
 class District(models.Model):
     name = models.CharField(max_length=100, default='')
     description = models.TextField(default=' ')    
-    county = models.ManyToManyField('County')
+    counties = models.ManyToManyField('County')
     cities = models.ManyToManyField('City')
     image = models.ImageField(upload_to='media/stock', default='', blank=True)    
     level = models.ForeignKey(
