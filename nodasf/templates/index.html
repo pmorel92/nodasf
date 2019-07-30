@@ -82,10 +82,10 @@
     
     <div id='local-link-section'>
             <h1 class="section-title">News Stories From Local Outlets</h1>        
-          <ul class='local-link-section'>
+          <ul class='local-link-list'>
           {% for local_link in local_links %}
             <li class='local-link'>
-               <a href="{{local_link.url}}" class="link" target="_blank">
+               <a href="{{local_link.url}}" class="anchor" target="_blank">
                  <p>{{local_link.headline}}</a><br>
                  <a href="https://sf.nodanews.com/media-org-directory/{{local_link.media.slug}}" class="local-media" target="_blank">{{local_link.media.name}}</a><br>
                  <a href="https://sf.nodanews.com/journalist/{{local_link.journalist.slug}}" class="journalist" target="_blank">{{local_link.journalist.name}}</a></p>                  
