@@ -40,8 +40,15 @@
   	</nav>
     </header>
 <div id="main">
+    <ul class='pol-list'>
     {% for politician in  politicians %}
-    <a href="https://sf.nodanews.com/politicians/{{politician.id}}/{{politician.slug}}/" target="_blank" class="politician-name">{{politician.name}}</a>
-    
+    <li class='pol'>
+    <a href="https://sf.nodanews.com/politicians/{{politician.id}}/{{politician.slug}}/" target="_blank" class="anchor">{{politician.name}}</a>
+    <img src="https://noda-sf-storage.s3.amazonaws.com/media/faces/{{politician.picture}}" class="pol-image">
+    <a href='https://sf.nodanews.com/district/{{politician.district.id}}/{{politician.district.slug}}' class='anchor'><h2 class="district">{{politician.district.name}}</h2></a>
+    <p class='level'>{{politician.level.name}}</p>
+    <p class='party'>{{politician.party.name}}</p>
+    </li>
     {% endfor %}
+    </ul>
 </div>
