@@ -76,7 +76,7 @@ def county(request, id, slug):
 	return render(request, 'county.html', {'county': county, 'cities': cities})	
 
 def district(request, id, slug):
-	district = get_object_or_404(City, pk=id)
+	district = get_object_or_404(District, pk=id)
 	pols = Politician.objects.filter( district_id = id )
 	return render(request, 'district.html', {'district': district, 'pols': pols})	
 
