@@ -40,8 +40,20 @@
   	</nav>
     </header>
 <div id="main">
-    {% for venue in  venues %}
-    <a href="https://sf.nodanews.com/venues/{{venue.id}}/{{venue.slug}}/" target="_blank" class="venue-name">{{venue.name}}</a>
-    
-    {% endfor %}
+
+                <div class="event">
+                        <h1 class="event-name">{{event.name}}</h1>
+                        <p class='event-date'>{{event.date}}</p>
+                        <p class='event-genre'>{{event.genre.name}}</p>
+                        <p class='event-venue'>Venue: {{event.venue}}</p>
+                  {% if event.free %}
+                         <p class="free">FREE</p>
+                  {% endif %}         
+                  {% if event.imageQ %}
+                  <img src="https://noda-sf-storage.s3.amazonaws.com/{{event.image}}" class="event-image">
+                  {% endif %}
+                    </a>
+          </div>
 </div>
+</body>
+</html>

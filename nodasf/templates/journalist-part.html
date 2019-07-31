@@ -40,8 +40,12 @@
   	</nav>
     </header>
 <div id="main">
-    {% for journalist in journalists %}
-    <a href="https://sf.nodanews.com/journalist/{{journalist.id}}/{{journalist.slug}}/" target="_blank" class="journalist-name">{{journalist.name}}</a>
+      <a href="https://sf.nodanews.com/journalist/{{journalist.id}}/{{journalist.slug}}/" target="_blank" class="journalist-name">{{journalist.name}}</a>
+        <a href="https://sf.nodanews.com/media-org-directory/{{journalist.organization.id}}/{{journalist.organization.slug}}/" target="_blank" class="media-name">{{journalist.organization.name}}</a>
+        <img src="https://noda-sf-storage.s3.amazonaws.com/{{journalist.image}}" class="image">
+        <p class="description">{{journalist.bio}}</p>
     
-    {% endfor %}
+
 </div>
+</body>
+</html>

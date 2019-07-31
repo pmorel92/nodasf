@@ -47,6 +47,15 @@ def issues(request):
 	issues = Issue.objects.all()
 	return render(request, 'issue.html', {'issues': issues})
 
+def issue_part(request, id, slug):
+	issue = get_object_or_404(Issue, pk=id)
+	local_links = Local_Link.objects.filter( issue_id = id)
+	stf_hubs = STF_Hub.objects.filter( issue__id = id)
+	stfs = {
+		p: STF.objects.filter(hub__id = p.id) for p in stf_hubs
+	}
+	return render(request, 'issue-part.html', {'issue': issue, 'local_links': local_links, 'stf_hubs': stfs})
+
 def agencies(request):
 	agencies = Agency.objects.all().order_by('name')
 	return render(request, 'agency.html', {'agencies': agencies})

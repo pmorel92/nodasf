@@ -40,8 +40,10 @@
   	</nav>
     </header>
 <div id="main">
-    {% for venue in  venues %}
-    <a href="https://sf.nodanews.com/venues/{{venue.id}}/{{venue.slug}}/" target="_blank" class="venue-name">{{venue.name}}</a>
+    {% for event in events %}
+    <a href="https://sf.nodanews.com/events/{{event.id}}/{{event.slug}}/" target="_blank" class="anchor"><p class='event-name'>{{event.name}}</p></a>
     
     {% endfor %}
 </div>
+</body>
+</html>
