@@ -98,9 +98,9 @@ def journalist_part(request, id, slug):
 	articles = Local_Link.objects.filter( journalist__id = id)
 	return render(request, 'journalist-part.html', {'journalist': journalist, 'articles': articles})
 
-def stf_hub(request, slug, stf_hub_id):
-	stf_hub = get_object_or_404(STF_Hub, pk=stf_hub_id)
-	stfs = STF.objects.filter( hub__id = stf_hub_id)[0:7]
+def stf_hub(request, id, slug):
+	stf_hub = get_object_or_404(STF_Hub, pk=id)
+	stfs = STF.objects.filter( hub__id = id)[0:7]
 	stf_links = {
 		p: STF_Link.objects.filter(story__id = p.id) for p in stfs
 	}	
