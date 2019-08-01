@@ -42,14 +42,14 @@
 <div id="main">   
                   <h1>{{stf.headline}}</h1>
                     <p class="stf-updated">Updated: {{stf.date_update}}</p>
-                    <p class='issue'>{{stf.issue.name}}</p>
+                     <a href="https://sf.nodanews.com/issue/{{stf.issue.id}}/{{stf.issue.slug}}/" target="_blank" class="anchor"><p class='issue'>{{stf.issue.name}}</p></a>
                       <img src="https://noda-sf-storage.s3.amazonaws.com/{{stf.image}}" class="stf_image">
                       <p class="credit">Photo Credit: {{stf.credit}}</p>
                         {% if videoQ %}
                 	        <iframe class="video" width="420" height="236" src="{{stf.video}}" frameborder="0" allowfullscreen></iframe>
                         {% endif %}
                       <p class="stf_update">{{stf.update|linebreaksbr}}</p>
-                      <p class='related'>Related to: {{stf.hub.name}}</p>
+                      <a href='https://sf.nodanews.com/hub/{{stf.hub.id}}/{{stf.hub.slug}}'><p class='related'>Related to: {{stf.hub.name}}</p></a>
                         <ul class='stf-link-list'>
                           {% for stf_link in stf_links %}
                             <li class='link'>
