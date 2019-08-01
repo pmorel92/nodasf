@@ -41,7 +41,7 @@
     </header>
 <div id="main">   
     <div id="stf-section">
-      <h1 class="section-title">Stories We are Following</h1>    
+      <h1 class="section-title">{{stf_hub.name}}</h1>    
           <ul class="stf-list">
             {% for stf in stfs %}
             <li>
@@ -56,47 +56,6 @@
             {% endfor %}
           </ul>
     </div>
-    <div id="event-section">
-        <h1 class="section-title">Local Events</h1>
-        <ul class="event-list">
-            {% for event in events %}
-                <li class="event">
-                    <a href="https://sf.nodanews.com/event/{{event.slug}}" class='anchor' target='_blank'>
-                        <p class="event-name">{{event.name}}</p>
-                        <p class='event-date'>{{event.date}}</p>
-                        <p class='event-genre'>{{event.genre}}</p>
-                        <p class='event-venue'>Venue: {{event.venue}}</p>
-                  {% if event.free %}
-                         <p class="free">FREE</p>
-                  {% endif %}         
-                  {% if event.imageQ %}
-                  <img src="https://noda-sf-storage.s3.amazonaws.com/media/{{event.image}}" class="event-image">
-                  {% endif %}
-                    </a>
-                </li>
-            
-            {% endfor %}
-            
-        </ul>
-    </div>
-    
-    <div id='local-link-section'>
-            <h1 class="section-title">News Stories From Local Outlets</h1>        
-          <ul class='local-link-section'>
-          {% for local_link in local_links %}
-            <li class='local-link'>
-               <a href="{{local_link.url}}" class="link" target="_blank">
-                 <p>{{local_link.headline}}</a><br>
-                 <a href="https://sf.nodanews.com/media-org-directory/{{local_link.media.slug}}" class="local-media" target="_blank">{{local_link.media.name}}</a><br>
-                 <a href="https://sf.nodanews.com/journalist/{{local_link.journalist.slug}}" class="journalist" target="_blank">{{local_link.journalist.name}}</a></p>                  
-                  {% if local_link.imageQ %}
-                  <a href="{{local_link.url}}" target="_blank">
-                  <img src="https://noda-sf-storage.s3.amazonaws.com/media/{{local_link.image}}" class="local_image">
-                  </a>
-              {% endif %}   
-           </li>          
-          {% endfor %}
-          </ul>
-        </div>
+
 </div>        
 </body>

@@ -40,10 +40,10 @@
   	</nav>
     </header>
 <div id="main">
-    {% for organization in  organizations %}
-    <a href="https://sf.nodanews.com/organization/{{organization.id}}/{{organization.slug}}/" target="_blank" class="org-name">{{organization.name}}</a>
-    
-    {% endfor %}
+      <h1>{{organization.name}}</h1>
+    <a href="{{organization.homepage}}"><img src='https://noda-sf-storage.s3.amazonaws.com/{{organization.image}}' class='image'></a>
+    <p class="category">{{organization.category.name}}</p>    
+    <p class='description'>{{organization.description}}</p>
 </div>
 </body>
 </html>

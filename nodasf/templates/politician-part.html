@@ -41,9 +41,12 @@
     </header>
 <div id="main">
     <h1>{{politician.name}}</h1>
+    <h2>Level: {{politician.level.name}}</h2>
+    <h3>{{politician.party.name}}</h3>
     <img src="https://noda-sf-storage.s3.amazonaws.com/{{politician.picture}}" class="pol-image">
+    <p class='description'>{{politician.description}}</p>
     <a href='https://sf.nodanews.com/district/{{politician.district.id}}/{{politician.district.slug}}' class='anchor'><h2 class="district">{{politician.district.name}}</h2></a>
-
+    <img src='https://noda-sf-storage.s3.amazonaws.com/{{politician.district.image}}' class='district-image'>
 </div>
 </body>
 </html>

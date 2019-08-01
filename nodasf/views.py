@@ -106,9 +106,9 @@ def stf_hub(request, slug, stf_hub_id):
 	}	
 	return render(request, 'stf-hub.html', {'stf_hub': stf_hub, 'stfs': stf_links})
 
-def stf(request, slug, stf_id):
-	stf = get_object_or_404(STF, pk=stf_id)
-	stf_links = STF_Link.objects.filter( story__id = stf_id)
+def stf(request, id, slug):
+	stf = get_object_or_404(STF, pk=id)
+	stf_links = STF_Link.objects.filter( story__id = id)
 	return render(request, 'stf.html', {'stf': stf, 'stf_links': stf_links})	
 	
 def event(request, id, slug):
