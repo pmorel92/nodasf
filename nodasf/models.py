@@ -337,8 +337,13 @@ class STF_Link(models.Model):
     media = models.ForeignKey(
         'Media_Org',
         on_delete=models.CASCADE,)
+    journalist = models.ForeignKey('Journalist',
+    null=True,
+    blank=True,
+    default=' ',
+    on_delete=models.PROTECT,)        
     story = models.ForeignKey(
         'STF',
         on_delete=models.CASCADE,)
     def __str__(self):
-        return "{}/{}".format(self.id, self.story)
+        return "{}/{}".format(self.title, self.story)
