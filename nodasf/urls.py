@@ -13,6 +13,7 @@ urlpatterns = [
 	path('politicians/', views.politicians, name="politician directory"),
 	path('politicians/<int:id>/<slug:slug>/', views.politician_part, name="politician particular"),	
 	path('issues/', views.issues, name="issue directory"),
+	path('issues/<int:id>/<slug:slug>/', views.issue_part, name="specific issue"),
 	path('agency/', views.agencies, name="agency directory"),
 	path('agency/<int:id>/<slug:slug>/', views.agency_part, name="agency particular"),	
 	path('about/', views.about, name="about NodaSF"),	
