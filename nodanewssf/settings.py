@@ -120,7 +120,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+os.environ['DJANGO_SETTINGS_MODULE'] = 'nodanewssf.settings'
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "nodanewssf.settings")
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
