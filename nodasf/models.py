@@ -127,12 +127,12 @@ class Venue(models.Model):
     homepage = models.CharField(max_length=300, default=' ')    
     city = models.ForeignKey(
         'City',
-        on_delete=models.PROTECT,)     
+        on_delete=models.SET_NULL,)     
     county = models.ForeignKey(
         'County',
         blank=True,
         null=True,
-        on_delete=models.PROTECT,)
+        on_delete=models.SET_NULL,)
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')
@@ -147,18 +147,18 @@ class Event(models.Model):
     date = models.DateTimeField()
     city = models.ForeignKey(
         'City',
-        on_delete=models.PROTECT,) 
+        on_delete=models.SET_NULL,) 
     county = models.ForeignKey(
         'County',
         blank=True,
         null=True,        
-        on_delete=models.PROTECT,)
+        on_delete=models.SET_NULL,)
     free = models.BooleanField(default=False)
     cost = models.CharField(max_length=100, default='', blank=True)
     homepage = models.CharField(max_length=200, default='', blank=True)
     genre = models.ForeignKey(
         'Genre',
-        on_delete=models.PROTECT,)
+        on_delete=models.SET_NULL,)
     description = models.TextField()
     venue = models.ForeignKey(
         'Venue',
@@ -178,25 +178,25 @@ class Politician(models.Model):
     name = models.CharField(max_length=100, default='')
     party = models.ForeignKey(
         'Party',
-        on_delete=models.PROTECT,)
+        on_delete=models.SET_NULL,)
     level = models.ForeignKey(
         'Level',
-        on_delete=models.PROTECT,)
+        on_delete=models.SET_NULL,)
     county = models.ForeignKey(
         'County',
         blank=True,
         null=True,
-        on_delete=models.PROTECT,)
+        on_delete=models.SET_NULL,)
     district = models.ForeignKey(
         'District',
         null=True,
-        on_delete=models.PROTECT)        
+        on_delete=models.SET_NULL)        
     picture = models.ImageField(upload_to='media/faces', default=" ")
     homepage = models.CharField(max_length=300, default='')
     description = models.TextField()
     upcoming = models.ForeignKey(
         'Event',
-        on_delete=models.CASCADE,)    
+        on_delete=models.SET_NULL,)    
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
