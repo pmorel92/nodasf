@@ -21,6 +21,8 @@ class Category(models.Model):
     name = models.CharField(max_length=100, default='')
     def __str__(self):
         return "{}/{}".format(self.name, self.id)
+    class Meta:
+        ordering = ('name',)        
         
 class Agency(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -31,6 +33,11 @@ class Agency(models.Model):
         'Category',
         null=True,
         on_delete=models.PROTECT)
+    issue = models.ForeignKey(
+        'Issue',
+        null=True,
+        default=1,
+        on_delete=models.PROTECT)   
     slug = models.SlugField(max_length=100, default=' ')
     
     def __str__(self):
@@ -38,21 +45,6 @@ class Agency(models.Model):
     class Meta:
         ordering = ('name',)
 
-class Organization(models.Model):
-    name = models.CharField(max_length=100, default='')
-    picture = models.ImageField(upload_to='media/stock', default=" ")
-    homepage = models.CharField(max_length=300, default='')
-    description = models.TextField()
-    category = models.ForeignKey(
-        'Category',
-        null=True,    
-        on_delete=models.PROTECT)    
-    slug = models.SlugField(max_length=100, default=' ')
-    
-    def __str__(self):
-        return self.name    
-    class Meta:
-        ordering = ('name',)
 
 class Genre(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -71,6 +63,28 @@ class Issue(models.Model):
         return "{}/{}".format(self.name, self.id)    
     class Meta:
         ordering = ('name',)
+
+class Organization(models.Model):
+    name = models.CharField(max_length=100, default='')
+    picture = models.ImageField(upload_to='media/stock', default=" ")
+    homepage = models.CharField(max_length=300, default='')
+    description = models.TextField()
+    category = models.ForeignKey(
+        'Category',
+        null=True,    
+        on_delete=models.PROTECT)
+    issue = models.ForeignKey(
+        'Issue',
+        null=True,
+        default=1,
+        on_delete=models.PROTECT)    
+    slug = models.SlugField(max_length=100, default=' ')
+    
+    def __str__(self):
+        return self.name    
+    class Meta:
+        ordering = ('name',)
+
 
 class City(models.Model):
     name = models.CharField(max_length=100, default='')
