@@ -41,7 +41,7 @@
     </header>
       <div id="main">
         <h1>{{issue.name}}</h1>
-        {% if isse.imageQ %}
+        {% if issue.imageQ %}
         <img src="https://noda-sf-storage.s3.amazonaws.com/{{issue.image}}" class="image">
         {% endif %}
 
@@ -70,7 +70,7 @@
                   {% for stf in stfs %}
                   <ul class='stf-list'>
                     <li class="stf">
-                      <a href='https://sf.nodanews.com/hub/{{stf.id}}/{{stf.slug}}' class='anchor'><p class='stf-name'>{{stf.title}}</p></a>
+                      <a href='https://sf.nodanews.com/story/{{stf.id}}/{{stf.slug}}' class='anchor'><p class='stf-name'>{{stf.headline}}</p></a>
                     </li>
                     {% endfor %}
                   </ul>
