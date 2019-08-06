@@ -40,15 +40,17 @@
   	</nav>
     </header>
 <div id="main">
-    {% for venue in  venues %}
-    <a href="https://sf.nodanews.com/venues/{{venue.id}}/{{venue.slug}}/" target="_blank" class="venue-name">{{venue.name}}</a>
-    <a href='https://sf.nodanews.com/city/{{venue.city.id}}/{{venue.city.name}}/' class='anchor'><p class="city">{{venue.city.name}}</p></a>
-    {% if imageQ %}
-    <a href='{{venue.homepage}}'><img src='https://noda-sf-storage.s3.amazonaws.com/{{venue.image}}' class="image"></a>
-    {% else %}
-     <a href='{{venue.homepage}}' class="homepage" class='anchor'>Homepage</a>
-    {% endif %}
+    {% for venue in venues %}
+    <div class='venue'>
+      <a href="https://sf.nodanews.com/venues/{{venue.id}}/{{venue.slug}}/" target="_blank" class="venue-name">{{venue.name}}</a>
+        <a href='https://sf.nodanews.com/city/{{venue.city.id}}/{{venue.city.name}}/' class='anchor'><p class="city">{{venue.city.name}}</p></a>
+          {% if venue.imageQ %}
+            <a href='{{venue.homepage}}'><img src='https://noda-sf-storage.s3.amazonaws.com/{{venue.image}}' class="image"></a>
+          {% else %}
+           <a href='{{venue.homepage}}' class="homepage" class='anchor'>Homepage</a>
+          {% endif %}
     {% endfor %}
+    </div>
 </div>
 </body>
 </html>
