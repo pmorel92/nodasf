@@ -18,6 +18,9 @@ class VenueAdmin(admin.ModelAdmin):
 class AgencyAdmin(admin.ModelAdmin):
     list_display = ['name', 'category']
 
+class OrgAdmin(admin.ModelAdmin):
+    list_display = ['issue', 'category']
+
 admin.site.register(County)
 admin.site.register(Venue, VenueAdmin)
 admin.site.register(Agency, AgencyAdmin)
@@ -36,4 +39,4 @@ admin.site.register(STF_Hub)
 admin.site.register(STF_Link)
 admin.site.register(District)
 admin.site.register(Category)
-admin.site.register(Organization)
+admin.site.register(Organization, OrgAdmin)
