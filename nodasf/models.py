@@ -163,7 +163,7 @@ class Event(models.Model):
     venue = models.ForeignKey(
         'Venue',
         default=1,
-        on_delete=models.PROTECT,)    
+        on_delete=models.CASCADE,)    
     imageQ = models.BooleanField(default=False)
     image = models.ImageField(upload_to='media/stock', default='', blank=True)
     slug = models.SlugField(max_length=100, default=' ')
@@ -196,7 +196,7 @@ class Politician(models.Model):
     description = models.TextField()
     upcoming = models.ForeignKey(
         'Event',
-        on_delete=models.PROTECT,)    
+        on_delete=models.CASCADE,)    
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
