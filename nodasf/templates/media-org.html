@@ -43,8 +43,9 @@
     <h1>{{media.name}}</h1>
     <a href="{{media.home_page}}"><img src='https://noda-sf-storage.s3.amazonaws.com/{{media.logo}}' class='image'></a>
     <p class="description">{{media.description|linebreaksbr}}</p>
+    <h2>Journalists:</h2>
     {% for journalist in journalists %}
-      <h2>{{journalist.name}}</h2>
+      <h3>{{journalist.name}}</h3>
       <img src='https://noda-sf-storage.s3.amazonaws.com/{{journalist.picture}}' class="journalist-image">
   {% endfor %}
 </div>
