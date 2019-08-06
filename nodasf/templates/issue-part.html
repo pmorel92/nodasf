@@ -41,10 +41,10 @@
     </header>
       <div id="main">
         <h1>{{issue.name}}</h1>
-        {% if imageQ %}
+        {% if isse.imageQ %}
         <img src="https://noda-sf-storage.s3.amazonaws.com/{{issue.image}}" class="image">
         {% endif %}
-        <img src="https://noda-sf-storage.s3.amazonaws.com/{{issue.image}}" class="image">
+
           <div class="local-links">
             <ul class="local-link-list">
           {% for local_link in local_links %}
@@ -65,14 +65,16 @@
           <div class='stfs'>
               <ul class="stf-hub-list">
                 {% for stf_hub, stfs in stf_hubs.items %}
-                  <a href='https://sf.nodanews.com/hub/{{stf_hub.id}}/{{stf_hub.slug}}'><h2>{{stf_hub.name}}</h2></a>
+                  <li class="stf-hub">
+                    <a href='https://sf.nodanews.com/hub/{{stf_hub.id}}/{{stf_hub.slug}}' class='anchor'><h2>{{stf_hub.name}}</h2></a>
                   {% for stf in stfs %}
                   <ul class='stf-list'>
                     <li class="stf">
-                      <a href='https://sf.nodanews.com/hub/{{stf.id}}/{{stf.slug}}'><p class='stf-name'>{{stf.name}}</p></a>
+                      <a href='https://sf.nodanews.com/hub/{{stf.id}}/{{stf.slug}}' class='anchor'><p class='stf-name'>{{stf.title}}</p></a>
                     </li>
                     {% endfor %}
                   </ul>
+                  </li>
                 {% endfor %}
                 
               </ul>
