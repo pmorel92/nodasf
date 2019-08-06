@@ -127,6 +127,7 @@ class Venue(models.Model):
     homepage = models.CharField(max_length=300, default=' ')    
     city = models.ForeignKey(
         'City',
+        null=True,        
         on_delete=models.SET_NULL,)     
     county = models.ForeignKey(
         'County',
@@ -147,6 +148,7 @@ class Event(models.Model):
     date = models.DateTimeField()
     city = models.ForeignKey(
         'City',
+        null=True,        
         on_delete=models.SET_NULL,) 
     county = models.ForeignKey(
         'County',
@@ -158,6 +160,7 @@ class Event(models.Model):
     homepage = models.CharField(max_length=200, default='', blank=True)
     genre = models.ForeignKey(
         'Genre',
+        null=True,        
         on_delete=models.SET_NULL,)
     description = models.TextField()
     venue = models.ForeignKey(
@@ -178,9 +181,11 @@ class Politician(models.Model):
     name = models.CharField(max_length=100, default='')
     party = models.ForeignKey(
         'Party',
+        null=True,        
         on_delete=models.SET_NULL,)
     level = models.ForeignKey(
         'Level',
+        null=True,        
         on_delete=models.SET_NULL,)
     county = models.ForeignKey(
         'County',
@@ -196,6 +201,7 @@ class Politician(models.Model):
     description = models.TextField()
     upcoming = models.ForeignKey(
         'Event',
+        null=True,
         on_delete=models.SET_NULL,)    
     slug = models.SlugField(max_length=100, default=' ')
 
