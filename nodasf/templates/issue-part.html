@@ -11,7 +11,7 @@
   gtag('config', 'UA-109012884-2');
 </script>
 <meta charset="utf-8">
-<title>NodaSF: Issues</title>
+<title>NodaSF: {{issue.name}}</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/issue.css' %}" rel="stylesheet" type="text/css">
@@ -44,6 +44,7 @@
         {% if imageQ %}
         <img src="https://noda-sf-storage.s3.amazonaws.com/{{issue.image}}" class="image">
         {% endif %}
+        <img src="https://noda-sf-storage.s3.amazonaws.com/{{issue.image}}" class="image">
           <div class="local-links">
             <ul class="local-link-list">
           {% for local_link in local_links %}
