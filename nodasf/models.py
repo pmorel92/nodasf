@@ -107,8 +107,8 @@ class Level(models.Model):
 class District(models.Model):
     name = models.CharField(max_length=100, default='')
     description = models.TextField(default=' ')    
-    counties = models.ManyToManyField('County')
-    cities = models.ManyToManyField('City')
+    county = models.ManyToManyField('County', related_name="counties")
+    city = models.ManyToManyField('City', related_name="cities")
     image = models.ImageField(upload_to='media/stock', default='', blank=True)    
     level = models.ForeignKey(
         'Level',
@@ -340,5 +340,9 @@ class STF_Link(models.Model):
     story = models.ForeignKey(
         'STF',
         on_delete=models.CASCADE,)
+    journalist = models.ForeignKey('Journalist',
+    null=True,
+    blank=True,
+    on_delete=models.PROTECT,)        
     def __str__(self):
         return "{}/{}".format(self.title, self.story)

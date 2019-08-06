@@ -10,7 +10,7 @@ class CityAdmin(admin.ModelAdmin):
     
 class EventAdmin(admin.ModelAdmin):
     list_display = ['name', 'venue', 'city', 'date']
-    date_hierarchy= ['date']
+    date_hierarchy= 'date'
 
 class VenueAdmin(admin.ModelAdmin):
     list_display = ['name', 'city', 'county', ]
