@@ -68,7 +68,7 @@ def about(request):
 	return render(request, 'about.html')
 
 def organizations(request):
-	organizations = Organization.Objects.all()
+	organizations = Organization.objects.all()
 	return render(request, 'organization.html', {'organizations': organizations})
 
 def organization_part(request, id, slug):
