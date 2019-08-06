@@ -19,7 +19,7 @@ class AgencyAdmin(admin.ModelAdmin):
     list_display = ['name', 'category']
 
 class OrgAdmin(admin.ModelAdmin):
-    list_display = ['issue', 'category']
+    list_display = ['name', 'issue', 'category']
 
 admin.site.register(County)
 admin.site.register(Venue, VenueAdmin)
