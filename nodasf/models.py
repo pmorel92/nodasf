@@ -217,6 +217,7 @@ class Politician(models.Model):
         'Event',
         null=True,
         on_delete=models.SET_NULL,)    
+    candidate = models.BooleanField(default=False)        
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):

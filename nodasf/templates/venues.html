@@ -40,6 +40,7 @@
   	</nav>
     </header>
 <div id="main">
+  <h1>Venues in the Bay Area</h1>
     {% for venue in venues %}
     <div class='venue'>
       <a href="https://sf.nodanews.com/venues/{{venue.id}}/{{venue.slug}}/" target="_blank" class="venue-name">{{venue.name}}</a>
@@ -49,8 +50,9 @@
           {% else %}
            <a href='{{venue.homepage}}' class="homepage" class='anchor'>Homepage</a>
           {% endif %}
-    {% endfor %}
     </div>
+    {% endfor %}
+
 </div>
 </body>
 </html>

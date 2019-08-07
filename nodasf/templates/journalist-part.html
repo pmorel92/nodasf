@@ -40,11 +40,13 @@
   	</nav>
     </header>
 <div id="main">
-      <a href="https://sf.nodanews.com/journalist/{{journalist.id}}/{{journalist.slug}}/" target="_blank" class="journalist-name">{{journalist.name}}</a>
-        <a href="https://sf.nodanews.com/media-org-directory/{{journalist.organization.id}}/{{journalist.organization.slug}}/" target="_blank" class="media-name">{{journalist.organization.name}}</a>
-        <img src="https://noda-sf-storage.s3.amazonaws.com/{{journalist.image}}" class="image">
+    <div class='journalist-part'>
+        <h1>{{journalist.name}}</h1>
+        <a href="https://sf.nodanews.com/media-org-directory/{{journalist.organization.id}}/{{journalist.organization.slug}}/" target="_blank" class="media-name"><p>{{journalist.organization.name}}</p></a>
+        <img src="https://noda-sf-storage.s3.amazonaws.com/{{journalist.picture}}" class="image">
         <p class="description">{{journalist.bio}}</p>
-    
+        <p class="works-for">{{journalist.name}} works for {{journalist.organization.name}}</p>
+    </div>
 
 </div>
 </body>
