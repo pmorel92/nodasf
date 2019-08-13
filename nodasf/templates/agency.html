@@ -43,8 +43,9 @@
     <h1 id='title'>Local and Regional Government Agencies</h1>
     {% for agency in agencies %}
     <div class='agency'>
-    <img src="https://noda-sf-storage.s3.amazonaws.com/{{agency.picture}}" class="image">
-    <a href="https://sf.nodanews.com/agency/{{agency.id}}/{{agency.slug}}/" target="_blank" class="agency-name">{{agency.name}}</a>
+    <a href="https://sf.nodanews.com/agency/{{agency.id}}/{{agency.slug}}/" target="_blank" class="agency-name">
+          <img src="https://noda-sf-storage.s3.amazonaws.com/{{agency.picture}}" class="image">
+          <p class='name'>{{agency.name}}</p></a>
     <p class='category'>{{agency.Category}}</p>
     <a href='{{agency.homepage}}' class="homepage">Homepage</a>
     </div>
