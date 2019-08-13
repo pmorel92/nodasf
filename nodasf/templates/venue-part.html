@@ -42,10 +42,10 @@
 <div id="main">
     <h1>{{venue.name}}</h1>
     <a href='https://sf.nodanews.com/city/{{venue.city.id}}/{{venue.city.name}}/' class='anchor'><p class="city">{{venue.city.name}}</p></a>
-    {% if imageQ %}
-    <a href='{{venue.homepage}}'><img src='https://noda-sf-storage.s3.amazonaws.com/{{venue.image}}' class="image"></a>
+    {% if venue.imageQ %}
+    <a href='{{venue.homepage}}'><img src='https://noda-sf-storage.s3.amazonaws.com/{{venue.image}}' class="image-part"></a>
     {% else %}
-     <a href='{{venue.homepage}}' class="homepage" class='anchor'>Homepage</a>
+     <a href='{{venue.homepage}}' class="homepage">Homepage</a>
     {% endif %}
     <p class='description'>{{venue.description}}</p>
 </div>
