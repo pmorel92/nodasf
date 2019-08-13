@@ -45,7 +45,7 @@
     <p class="description">{{media.description|linebreaksbr}}</p>
     <h2>Journalists:</h2>
     {% for journalist in journalists %}
-      <a href='https://sf.nodanews.com/{{journalist.id}}/{{journalist.slug}}' class='anchor'><h3>{{journalist.name}}</h3></a>
+      <a href='https://sf.nodanews.com/journalist/{{journalist.id}}/{{journalist.slug}}' class='anchor'><h3>{{journalist.name}}</h3></a>
       <img src='https://noda-sf-storage.s3.amazonaws.com/{{journalist.picture}}' class="journalist-image">
   {% endfor %}
 </div>

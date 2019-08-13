@@ -47,7 +47,7 @@
     {% else %}
      <a href='{{venue.homepage}}' class="homepage">Homepage</a>
     {% endif %}
-    <p class='description'>{{venue.description}}</p>
+    <p class='description'>{{venue.description|linebreaksbr}}</p>
 </div>
 </body>
 </html>
