@@ -54,6 +54,7 @@
                   <p class="stf_update">{{stf.update|linebreaksbr}}</p>
                   <a href="https://sf.nodanews.com/{{stf.hub.id}}/{{stf.hub.slug}}" class="anchor" target='_blank'><p class="stf-hub">{{stf.hub.name}}</p></a>
             </li>
+            <hr>
             {% endfor %}
           </ul>
     </div>
@@ -75,7 +76,7 @@
                   {% endif %}
                     
                 </li>
-            
+            <hr>
             {% endfor %}
             
         </ul>
@@ -95,7 +96,8 @@
                   <img src="https://noda-sf-storage.s3.amazonaws.com/{{local_link.image}}" class="local_image">
                   </a>
               {% endif %}   
-           </li>          
+           </li>      
+           <hr>
           {% endfor %}
           </ul>
         </div>
