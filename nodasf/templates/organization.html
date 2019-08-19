@@ -11,7 +11,7 @@
   gtag('config', 'UA-109012884-2');
 </script>
 <meta charset="utf-8">
-<title>NodaSF: Organizations</title>
+<title>Bay Area Organizations</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/organization.css' %}" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
   <h1> Local Organizations</h1>
     {% for organization in  organizations %}
     <div class='org'>
-    <a href="https://sf.nodanews.com/organization/{{organization.id}}/{{organization.slug}}/" class="org-name">{{organization.name}}</a>
+    <a href="https://sf.nodanews.com/organizations/{{organization.id}}/{{organization.slug}}/" class="org-name">{{organization.name}}</a>
     <a href="{{organization.homepage}}"><img src='https://noda-sf-storage.s3.amazonaws.com/{{organization.picture}}' class='image'></a>
     <p class="category">{{organization.category.name}}</p>
     <a href='https://sf.nodanews.com/issues/{{organization.issue.id}}/{{organization.issue.slug}}' class='issue'>{{organization.issue.name}}</a>
