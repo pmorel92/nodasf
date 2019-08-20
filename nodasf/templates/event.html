@@ -11,7 +11,7 @@
   gtag('config', 'UA-109012884-2');
 </script>
 <meta charset="utf-8">
-<title>NodaSF: Venues</title>
+<title>{{event.name}}</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/event.css' %}" rel="stylesheet" type="text/css">
@@ -44,15 +44,17 @@
                 <div class="event">
                         <h1 class="event-name">{{event.name}}</h1>
                         <p class='event-date'>{{event.date}}</p>
-                        <p class='event-genre'>{{event.genre.name}}</p>
-                        <a href='https://sf.nodanews.com{{event.venue.id}}/{{event.venue.slug}}' class='anchor'><p class='event-venue'>Venue: {{event.venue}}</p></a>
+                        <a href='https://sf.nodanews.com/city/{{event.city.id}}/{{event.city.slug}}'><p class='city'>{{event.city.name}}</p></a>
+                        <a href='https://sf.nodanews.com/events/genre/{{event.genre.id}}/{{event.genre.slug}}' class='anchor'><p class='event-genre'>{{event.genre.name}}</p></a>
+                        <a href='https://sf.nodanews.com/{{event.venue.id}}/{{event.venue.slug}}' class='anchor'><p class='event-venue'>Venue: {{event.venue}}</p></a>
+                  {% if event.imageQ %}
+                  <img src="https://noda-sf-storage.s3.amazonaws.com/{{event.image}}" class="event-image">
+                  {% endif %}
                         <p class='event-description'>{{event.description}}</p>
                   {% if event.free %}
                          <p class="free">FREE</p>
                   {% endif %}         
-                  {% if event.imageQ %}
-                  <img src="https://noda-sf-storage.s3.amazonaws.com/{{event.image}}" class="event-image">
-                  {% endif %}
+
                     </a>
           </div>
 </div>

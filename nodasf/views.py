@@ -118,3 +118,8 @@ def event(request, id, slug):
 def events_hub(request):
 	events = Event.objects.all().order_by('-date')
 	return render(request,'event-hub.html', {'events': events})
+
+def events_genre(request, id, slug):
+	genre = get_object_or_404(Genre, pk=id)
+	events = Event.objects.filter( genre__id = id).order_by('-date')[0:20]
+	return render(request, 'event-genre.html', {'genre': genre, 'events': events})

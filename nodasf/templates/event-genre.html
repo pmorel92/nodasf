@@ -11,7 +11,7 @@
   gtag('config', 'UA-109012884-2');
 </script>
 <meta charset="utf-8">
-<title>NodaSF: Local Events</title>
+<title>{{genre.name}} Events</title>
 {% load static from staticfiles %}
 <link rel="image_src" href="{% static 'NN-FB-Pro_pic.png' %}"/> 
 <link href="{% static 'css_style_sheets/event.css' %}" rel="stylesheet" type="text/css">
@@ -40,7 +40,9 @@
   	</nav>
     </header>
 <div id="main">
+  <h1>{{genre.name}} Events</h1>
     {% for event in events %}
+    <div class='event-part'>
           <a href="https://sf.nodanews.com/events/{{event.id}}/{{event.slug}}/" target="_blank" class="anchor"><p class='event-name'>{{event.name}}</p></a>
           <p class='event-date'>{{event.date}}</p>
           <a href='https://sf.nodanews.com/events/genre/{{event.genre.id}}/{{event.genre.slug}}' class='anchor'><p class='event-genre'>{{event.genre.name}}</p></a>
@@ -49,6 +51,7 @@
                   <img src="https://noda-sf-storage.s3.amazonaws.com/{{event.image}}" class="event-image">
                   {% endif %}
         <hr>
+        </div>
     {% endfor %}
 </div>
 </body>
