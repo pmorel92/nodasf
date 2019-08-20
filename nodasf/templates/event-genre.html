@@ -45,6 +45,7 @@
     <div class='event-part'>
           <a href="https://sf.nodanews.com/events/{{event.id}}/{{event.slug}}/" target="_blank"  class='event-genre-name'><p>{{event.name}}</p></a>
           <p class='event-date'>{{event.date}}</p>
+          <a href='https://sf.nodanews.com/city/{{event.city.id}}/{{event.city.slug}}'><p class='city'>{{event.city.name}}</p></a>          
           <a href='https://sf.nodanews.com/{{event.venue.id}}/{{event.venue.slug}}' class='anchor'><p class='event-venue'>Venue: {{event.venue}}</p></a>
                   {% if event.imageQ %}
                   <img src="https://noda-sf-storage.s3.amazonaws.com/{{event.image}}" class="event-genre-image">
