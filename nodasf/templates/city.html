@@ -42,7 +42,7 @@
 <div id="main">
       <h1>{{city.name}}</h1>
       <a href='https://sf.nodanews.com/county/{{city.county.id}}/{{city.county.slug}}'class="anchor"><h2>{{city.county.name}}</h2></a>
-      {% if imageQ %}
+      {% if city.imageQ %}
     <img src="https://noda-sf-storage.s3.amazonaws.com/{{city.image}}" class="image">
     {% endif %}
     <a href='{{city.homepage}}'><p class="homepage">Homepage</p></a>
