@@ -41,9 +41,11 @@
     </header>
 <div id="main">
     {% for journalist in journalists %}
+    <div class='journos'>
     <a href="https://sf.nodanews.com/journalist/{{journalist.id}}/{{journalist.slug}}/" target="_blank" class="journalist-name">{{journalist.name}}</a>
           <a href="https://sf.nodanews.com/media-org-directory/{{journalist.organization.id}}/{{journalist.organization.slug}}/" target="_blank" class="media-name">{{journalist.organization.name}}</a>
         <img src="https://noda-sf-storage.s3.amazonaws.com/{{journalist.picture}}" class="image">  
+    </div>
     {% endfor %}
 </div>
 </body>
