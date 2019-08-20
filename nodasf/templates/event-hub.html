@@ -41,13 +41,17 @@
     </header>
 <div id="main">
     {% for event in events %}
-          <a href="https://sf.nodanews.com/event/{{event.id}}/{{event.slug}}/" target="_blank" class="anchor"><p class='event-name'>{{event.name}}</p></a>
+          <a href="https://sf.nodanews.com/event/{{event.id}}/{{event.slug}}/" class="anchor"><p class='event-name'>{{event.name}}</p></a>
           <p class='event-date'>{{event.date}}</p>
+          <a href='https://sf.nodanews.com/city/{{event.city.id}}/{{event.city.slug}}' class='anchor'><p class='city'>{{event.city.name}}</p></a>
           <a href='https://sf.nodanews.com/events/genre/{{event.genre.id}}/{{event.genre.slug}}' class='anchor'><p class='event-genre'>{{event.genre.name}}</p></a>
           <a href='https://sf.nodanews.com/{{event.venue.id}}/{{event.venue.slug}}' class='anchor'><p class='event-venue'>Venue: {{event.venue}}</p></a>
                   {% if event.imageQ %}
                   <img src="https://noda-sf-storage.s3.amazonaws.com/{{event.image}}" class="event-image">
                   {% endif %}
+                  {% if event.free %}
+                         <p class="free">FREE</p>
+                  {% endif %}  
         <hr>
     {% endfor %}
 </div>
