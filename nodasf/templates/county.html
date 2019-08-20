@@ -47,6 +47,7 @@
     <p class='description'>{{county.description|linebreaksbr}}</p> -->
     <p class='cities-title'>Cities in {{county.name}}</p>
     {% for city in cities %}
+    <div class='city-part'>
             <h2>{{city.name}}</h2>
               {% if city.imageQ %}
                 <img src="https://noda-sf-storage.s3.amazonaws.com/{{city.image}}" class="city-image">
@@ -55,6 +56,8 @@
     <!-- Not Ready Yet
     <p class='description'>{{city.description|linebreaksbr}}</p>
       -->
+      <hr>
+      </div>
     {% endfor %}
 </div>
 </body>
