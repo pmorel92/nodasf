@@ -44,10 +44,11 @@
         <img src="https://noda-sf-storage.s3.amazonaws.com/{{county.image}}" class="image">
             <a href='{{county.homepage}}'><p class="homepage">Homepage</p></a>
     <!-- Not Ready Yet
-    <p class='description'>{{city.description|linebreaksbr}}</p> -->
+    <p class='description'>{{county.description|linebreaksbr}}</p> -->
+    <p class='cities-title'>Cities in {{county.name}}</p>
     {% for city in cities %}
             <h2>{{city.name}}</h2>
-              {% if imageQ %}
+              {% if city.imageQ %}
                 <img src="https://noda-sf-storage.s3.amazonaws.com/{{city.image}}" class="image">
               {% endif %}
     <a href='{{city.homepage}}'><p class="homepage">Homepage</p></a>
