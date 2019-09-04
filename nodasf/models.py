@@ -159,7 +159,7 @@ class Venue(models.Model):
         
 class Event(models.Model):
     name = models.CharField(max_length=200)
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=datetime.now)
     city = models.ForeignKey(
         'City',
         null=True,        
@@ -265,7 +265,7 @@ class Local_Link(models.Model):
     media = models.ForeignKey(
         'Media_Org',
         on_delete=models.CASCADE,)
-    posted = models.DateTimeField(default=datetime.now, blank=True)
+    posted = models.DateTimeField(auto_now_add=True, blank=True)
     county = models.ForeignKey(
         'County',
         blank=True,
@@ -306,7 +306,7 @@ class STF_Hub(models.Model):
         'City',
         blank=True,
         on_delete=models.PROTECT,)    
-    date_updated = models.DateTimeField(default=datetime.now, blank=True)
+    date_updated = models.DateTimeField(auto_now=True, blank=True)
     description = models.TextField(default='', blank=True)
     issue = models.ForeignKey(
         'Issue',
@@ -325,7 +325,7 @@ class STF(models.Model):
     image = models.ImageField(upload_to='media/stock', default='')
     credit = models.CharField(max_length=200, default='')     
     update = models.TextField()
-    date_updated = models.DateTimeField()
+    date_updated = models.DateTimeField(auto_now_add=True)
     videoQ = models.BooleanField(default=False)
     video = models.CharField(max_length=500, default='', blank=True) 
     hub= models.ForeignKey(
