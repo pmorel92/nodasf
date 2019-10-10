@@ -301,17 +301,19 @@ class STF_Hub(models.Model):
     county = models.ForeignKey(
         'County',
         blank=True,    
-        on_delete=models.PROTECT,)
+        null=True,         
+        on_delete=models.CASCADE,)
     city = models.ForeignKey(
         'City',
         blank=True,
-        on_delete=models.PROTECT,)    
+        null=True,         
+        on_delete=models.CASCADE,)    
     date_updated = models.DateTimeField(auto_now=True, blank=True)
     description = models.TextField(default='', blank=True)
     issue = models.ForeignKey(
         'Issue',
         null=True,        
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         blank=True,)        
     slug = models.SlugField(max_length=200, default=' ') 
 
@@ -330,19 +332,21 @@ class STF(models.Model):
     video = models.CharField(max_length=500, default='', blank=True) 
     hub= models.ForeignKey(
         'STF_Hub',
-        on_delete=models.PROTECT)
+        on_delete=models.CASCADE)
     county = models.ForeignKey(
         'County',
-        blank=True,    
-        on_delete=models.PROTECT,)
+        blank=True,   
+        null=True,  
+        on_delete=models.CASCADE,)
     city = models.ForeignKey(
         'City',
         blank=True,
-        on_delete=models.PROTECT,)
+        null=True,         
+        on_delete=models.CASCADE,)
     issue = models.ForeignKey(
         'Issue',
-       null=True,    
-        on_delete=models.PROTECT,
+        null=True,    
+        on_delete=models.CASCADE,
         blank=True,)            
     slug = models.SlugField(max_length=200, default=' ') 
 
