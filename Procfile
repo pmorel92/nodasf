@@ -1,1 +1,1 @@
-web: gunicorn nodanewssf.wsgi --log-file -
+waitress-serve --port=$PORT nodanewssf.wsgi:application
