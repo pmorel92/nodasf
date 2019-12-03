@@ -245,7 +245,6 @@ class Media_Org(models.Model):
         ordering = ('name',)
         
 class Journalist(models.Model):
-    name = models.CharField(max_length=200, default='')
     first_name = models.CharField(max_length=200, default='first')    
     last_name = models.CharField(max_length=200, default='last')    
     contact = models.CharField(max_length=200, default='')
