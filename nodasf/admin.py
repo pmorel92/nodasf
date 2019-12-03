@@ -23,6 +23,10 @@ class AgencyAdmin(admin.ModelAdmin):
 class OrgAdmin(admin.ModelAdmin):
     list_display = ['name', 'issue', 'category']
 
+class PoliticianAdmin(admin.ModelAdmin):
+    list_display = ['last_name','first_name', 'district', 'level', 'candidate',]
+    
+
 admin.site.register(County)
 admin.site.register(Venue, VenueAdmin)
 admin.site.register(Agency, AgencyAdmin)
@@ -32,7 +36,7 @@ admin.site.register(City, CityAdmin)
 admin.site.register(Party)
 admin.site.register(Level)
 admin.site.register(Event, EventAdmin)
-admin.site.register(Politician)
+admin.site.register(Politician, PoliticianAdmin)
 admin.site.register(Media_Org, Media_OrgAdmin)
 admin.site.register(Journalist, JournalistAdmin)
 admin.site.register(Local_Link)

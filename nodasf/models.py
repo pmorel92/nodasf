@@ -192,7 +192,8 @@ class Event(models.Model):
         ordering = ('-date',)  
 
 class Politician(models.Model):
-    name = models.CharField(max_length=100, default='')
+    first_name = models.CharField(max_length=100, default='first')
+    last_name = models.CharField(max_length=100, default='last')    
     party = models.ForeignKey(
         'Party',
         null=True,        
@@ -216,12 +217,13 @@ class Politician(models.Model):
     upcoming = models.ForeignKey(
         'Event',
         null=True,
-        on_delete=models.SET_NULL,)    
+        on_delete=models.SET_NULL,
+        blank=True)    
     candidate = models.BooleanField(default=False)        
     slug = models.SlugField(max_length=100, default=' ')
 
     def __str__(self):
-        return self.name    
+        return self.last_name    
 
 class Media_Org(models.Model):
     name = models.CharField(max_length=100, default='')
