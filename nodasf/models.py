@@ -255,7 +255,7 @@ class Journalist(models.Model):
     picture = models.ImageField(upload_to='media/faces', default=" ")
     slug = models.SlugField(max_length=100, default=' ')
     def __str__(self):
-        return self.name
+        return self.last_name
     class Meta:
         ordering = ('last_name',)
 
