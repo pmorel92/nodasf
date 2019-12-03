@@ -245,7 +245,8 @@ class Media_Org(models.Model):
         ordering = ('name',)
         
 class Journalist(models.Model):
-    name = models.CharField(max_length=200, default='')
+    first_name = models.CharField(max_length=200, default='')
+    last_name = models.CharField(max_length=200, default='')    
     contact = models.CharField(max_length=200, default='')
     organization = models.ForeignKey(
         'Media_Org',
@@ -256,7 +257,7 @@ class Journalist(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        ordering = ('name',)
+        ordering = ('last_name',)
 
 
 class Local_Link(models.Model):

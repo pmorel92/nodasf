@@ -14,6 +14,8 @@ class EventAdmin(admin.ModelAdmin):
 
 class VenueAdmin(admin.ModelAdmin):
     list_display = ['name', 'city', 'county', ]
+class JournalistAdmin(admin.ModelAdmin):
+    list_display = ['last_name', 'first_name', 'organization',]
 
 class AgencyAdmin(admin.ModelAdmin):
     list_display = ['name', 'category']
@@ -32,7 +34,7 @@ admin.site.register(Level)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Politician)
 admin.site.register(Media_Org, Media_OrgAdmin)
-admin.site.register(Journalist)
+admin.site.register(Journalist, JournalistAdmin)
 admin.site.register(Local_Link)
 admin.site.register(STF)
 admin.site.register(STF_Hub)
