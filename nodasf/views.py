@@ -5,7 +5,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import F, Q
-from .models import County, Venue, Agency, Organization, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF_Hub, STF_Link, STF, District, Category
+from .models import County, Venue, Agency, Organization, Genre, Issue, City, Party, Level, Event, Politician, Media_Org, Journalist, Local_Link, STF_Hub, STF_Link, STF, District, Category, Program, Bureaucrat
 
 @register.filter
 def get_item(dictionary, key):

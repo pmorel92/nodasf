@@ -103,6 +103,29 @@ class City(models.Model):
         return self.name        
     class Meta:
         ordering = ('name',)        
+
+class Program(models.Model):
+    name = models.CharField(max_length=200, default='name')
+    homepage = models.CharField(max_length=300, default=' ')    
+    organization = models.ForeignKey(
+        'Organization',
+        on_delete=models.PROTECT,)
+    description = models.TextField(default=' ')    
+    imageQ = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='media/stock', default='', blank=True) 
+    category = models.ForeignKey(
+        'Category',
+        null=True,    
+        on_delete=models.PROTECT)
+    issue = models.ForeignKey(
+        'Issue',
+        null=True,
+        default=1,
+        on_delete=models.PROTECT)     
+    def __str__(self):
+        return self.name     
+    class Meta:
+        ordering = ('name',)  
         
 class Party(models.Model):
     name = models.CharField(max_length=100, default='')
@@ -224,7 +247,24 @@ class Politician(models.Model):
 
     def __str__(self):
         return self.last_name    
-
+        
+class Bureaucrat(models.Model):
+    last_name = models.CharField(max_length=100, default='last')
+    first_name = models.CharField(max_length=100, default='first')
+    picture = models.ImageField(upload_to='media/faces', default=" ")
+    description = models.TextField()
+    organization = models.ForeignKey(
+        'Organization',
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,)
+    program = models.ManyToManyField(
+        'Program',
+        null=True,
+        blank=True,)    
+    def __str__(self):
+        return self.last_name    
+                
 class Media_Org(models.Model):
     name = models.CharField(max_length=100, default='')
     home_page = models.CharField(max_length=200, default='')
